@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créer un Nouveau message</title>
+</head>
+<body>
+  <div class="container">
+    <div class="messages-section">
+      <h2>Messages</h2>
+      
+      <div *ngIf="messages.length === 0">Aucun message à afficher.</div>
+      <div *ngFor="let message of messages" class="message">
+          <div class="message-container">
+              <div class="message-content">{{ message.contenu }}</div>
+              <div class="message-date">{{ message.date_envoi | date:'short' }}</div>
+          </div>
+      </div>
+      
+      
+      <div class="add-message">
+        <textarea id="newMessage" [(ngModel)]="newMessage" placeholder="Écrivez ici votre message"></textarea>
+        <button (click)="addMessage()">Envoyer</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
